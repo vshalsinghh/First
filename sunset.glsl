@@ -51,8 +51,6 @@ void main(){
 
     float newy = st.y;
 
-
-
     // color = mix(color, color1, pct) ;
     // color = mix(color, color2, pct);
     // color = mix(color, color3, pct);
