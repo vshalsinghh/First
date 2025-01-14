@@ -43,27 +43,33 @@ void main(){
     
     
     
-    float d = length(vec2(st.x, st.y ) - vec2(0., 0.3));
+    float d = length(vec2(st.x, st.y) - vec2(0.5, 0.));
 
-    float circle = 1. - smoothstep(0.1, 0.1- 0.05, d);
+    float circle = 1. - smoothstep(0., 0.6- 0.1, d);
 
     pct = st.y;
 
-    float newy = st.y;
+    // flag
+    // float newy = st.y;
 
+    //rainbow
+    float newy =  smoothstep(0., 0.2, circle);
     // color = mix(color, color1, pct) ;
     // color = mix(color, color2, pct);
     // color = mix(color, color3, pct);
 
     //  color = mix(color, color1, smoothstep(0., 0.2, circle));
+
+    color = mix(color, vec3(1.), smoothstep(-0.001, 0.01, newy));
     
-     color = mix(color, color1, smoothstep(-0.001, 0., newy));
+     color = mix(color, color1, smoothstep(-0.001, 0.02, newy));
      color = mix(color, color2, smoothstep(0.12, 0.14, newy));
      color = mix(color, color3, smoothstep(0.26, 0.28, newy));
      color = mix(color, color4, smoothstep(0.40, 0.42, newy));
      color = mix(color, color5, smoothstep(0.54, 0.56, newy));
-     color = mix(color, color6, smoothstep(0.68, 0.70, newy));
-     color = mix(color, color7, smoothstep(0.82, 0.84, newy));
+     color = mix(color, color6, smoothstep(0.68, 0.82, newy));
+     color = mix(color, color7, smoothstep(0.82, 0.99, newy));
+     color = mix(color, vec3(1.), smoothstep(0.99, 1., newy));
 
 
     gl_FragColor = vec4(color,  1.0);
